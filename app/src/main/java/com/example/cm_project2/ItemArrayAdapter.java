@@ -68,7 +68,7 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
             viewHolder = new ItemViewHolder();
             viewHolder.s1 = (TextView) row.findViewById(R.id.s1);
             viewHolder.s2 = (TextView) row.findViewById(R.id.s2);
-            /*viewHolder.s3 = (TextView) row.findViewById(R.id.s3);
+            viewHolder.s3 = (TextView) row.findViewById(R.id.s3);
             viewHolder.s4 = (TextView) row.findViewById(R.id.s4);
             viewHolder.s5 = (TextView) row.findViewById(R.id.s5);
             viewHolder.s6 = (TextView) row.findViewById(R.id.s6);
@@ -82,7 +82,7 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
             viewHolder.c6 = (TextView) row.findViewById(R.id.c6);
             viewHolder.c7 = (TextView) row.findViewById(R.id.c7);
             viewHolder.c8 = (TextView) row.findViewById(R.id.c8);
-            viewHolder.Date = (TextView) row.findViewById(R.id.date);*/
+            viewHolder.Date = (TextView) row.findViewById(R.id.date);
 
             row.setTag(viewHolder);
         } else {
@@ -91,7 +91,7 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
         String[] stat = getItem(position);
         viewHolder.s1.setText(stat[0]);
         viewHolder.s2.setText(stat[1]);
-        /*viewHolder.s3.setText(stat[2]);
+        viewHolder.s3.setText(stat[2]);
         viewHolder.s4.setText(stat[3]);
         viewHolder.s5.setText(stat[4]);
         viewHolder.s6.setText(stat[5]);
@@ -105,7 +105,7 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
         viewHolder.c6.setText(stat[13]);
         viewHolder.c7.setText(stat[14]);
         viewHolder.c8.setText(stat[15]);
-        viewHolder.Date.setText(stat[16]);*/
+        viewHolder.Date.setText(stat[16]);
 
 
         return row;
