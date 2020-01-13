@@ -1,8 +1,10 @@
 package com.example.cm_project2;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.format.DateFormat;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -18,33 +20,65 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_7 = "S6";
     private static final String COL_8 = "S7";
     private static final String COL_9 = "S8";
-    private static final String COL_10 = "S9";
-    private static final String COL_11 = "C1";
-    private static final String COL_12 = "C2";
-    private static final String COL_13 = "C3";
-    private static final String COL_14 = "C4";
-    private static final String COL_15 = "C5";
-    private static final String COL_16 = "C6";
-    private static final String COL_17 = "C7";
-    private static final String COL_18 = "C8";
-    private static final String COL_19 = "DATETIME";
+    private static final String COL_10 = "C1";
+    private static final String COL_11 = "C2";
+    private static final String COL_12 = "C3";
+    private static final String COL_13 = "C4";
+    private static final String COL_14 = "C5";
+    private static final String COL_15 = "C6";
+    private static final String COL_16 = "C7";
+    private static final String COL_17 = "C8";
+    private static final String COL_18 = "DATE";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE1_NAME);
+
     }
-
-    private static final String TABLE_CREATE_PROCESS =
-            "CREATE TABLE " + TABLE1_NAME + "()";
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(TABLE_CREATE_PROCESS);
-        //db.execSQL(LUBAN_TABLE_CREATE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE1_NAME);
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE1_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "S1 TEXT, S2 TEXT, S3 TEXT, S4 TEXT, S5 TEXT, S6 TEXT, S7 TEXT, S8 TEXT," +
+                "C1 TEXT, C2 TEXT, C3 TEXT, C4 TEXT, C5 TEXT, C6 TEXT, C7 TEXT, C8 TEXT, DATE TEXT) ");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE1_NAME);
+        onCreate(db);
     }
+
+    public boolean insertData(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8,
+                              String c1, String c2, String c3, String c4, String c5, String c6, String c7, String c8, String date){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, s1);
+        contentValues.put(COL_3, s2);
+        contentValues.put(COL_4, s3);
+        contentValues.put(COL_5, s4);
+        contentValues.put(COL_6, s5);
+        contentValues.put(COL_7, s6);
+        contentValues.put(COL_8, s7);
+        contentValues.put(COL_9, s8);
+        contentValues.put(COL_10, c1);
+        contentValues.put(COL_11, c2);
+        contentValues.put(COL_12, c3);
+        contentValues.put(COL_13, c4);
+        contentValues.put(COL_14, c5);
+        contentValues.put(COL_15, c6);
+        contentValues.put(COL_16, c7);
+        contentValues.put(COL_17, c8);
+        contentValues.put(COL_18, date);
+
+        long result = db.insert(TABLE1_NAME, null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
 }
