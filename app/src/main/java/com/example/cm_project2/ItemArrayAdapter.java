@@ -1,7 +1,6 @@
 package com.example.cm_project2;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +9,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class ItemArrayAdapter extends ArrayAdapter<String[]> {
     private List<String[]> scoreList = new ArrayList<String[]>();
@@ -106,10 +103,6 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
         viewHolder.c7.setText(stat[14]);
         viewHolder.c8.setText(stat[15]);
         viewHolder.Date.setText(stat[16]);
-
-
         return row;
     }
-
-
 }

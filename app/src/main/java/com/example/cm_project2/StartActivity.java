@@ -8,9 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.InputStream;
 import java.util.List;
 
@@ -29,7 +26,6 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-
         listView = (ListView) findViewById(R.id.listView);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
@@ -45,10 +41,10 @@ public class StartActivity extends Activity {
             itemArrayAdapter.add(scoreData);
         }
 
-        String[] stat2 = itemArrayAdapter.getItem(0);
-        s1 = stat2[0];
-        s2 = stat2[1];
-        Log.d("CREATION", "Linha : " + s1 + s2);
+        //String[] stat2 = itemArrayAdapter.getItem(0);
+        //s1 = stat2[0];
+        //s2 = stat2[1];
+        //Log.d("TAG", "Linha : " + s1 + s2);
 
         btnAddData = (Button) findViewById(R.id.btnAddData);
 
@@ -63,9 +59,7 @@ public class StartActivity extends Activity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //Log.d("CREATION", "Linha : " +s1 + " " + s2);
                         boolean isInserted;
-                        Log.d("CREATION", "COUNT : " + itemArrayAdapter.getCount());
                         for (int i = 0; i < itemArrayAdapter.getCount(); i++) {
                             String[] linha1 = itemArrayAdapter.getItem(i);
                             for (int j = 0; j < 1; j++) {
@@ -88,7 +82,7 @@ public class StartActivity extends Activity {
                                 String coluna17 = linha1[j + 16];
                                 isInserted = myDb.insertData(coluna1, coluna2, coluna3, coluna4, coluna5, coluna6, coluna7, coluna8, coluna9, coluna10,
                                         coluna11, coluna12, coluna13, coluna14, coluna15, coluna16, coluna17);
-                                //Log.d("epa", "Linha: " + coluna1 + " " + coluna2 + " ");
+                               // Log.d("TAG", "Linha: " + coluna1 + " " + coluna2 + " ");
                             }
                         }
                         if (isInserted = true) {
