@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">cm_project2</string>
+    <string name="textView7">
+        Visualização de informação e progresso de um processo da Indústria 4.0.\n\n
+        1ºPasso: \n
+        2ºPasso: \n
+        3ºPasso: \n\n
+
+    </string>
+    <string name="textView3">Instruções</string>
 </resources>

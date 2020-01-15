@@ -19,13 +19,11 @@ public class StartActivity extends AppCompatActivity {
 
         b = (Button)findViewById(R.id.button);
 
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Animation animation = AnimationUtils.loadAnimation(StartActivity.this, R.anim.lefttoright);
+        Animation animation = AnimationUtils.loadAnimation(StartActivity.this, R.anim.lefttoright);
+        
+        animation.setDuration(2000);
+        b.startAnimation(animation);
 
-                b.startAnimation(animation);
-            }
-        });
+
     }
 }
