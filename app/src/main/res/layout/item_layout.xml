@@ -1,47 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/s1"
+                android:layout_weight="33" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/s2"
+                android:layout_weight="33"
+                android:layout_marginStart="7dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/s3"
+                android:layout_weight="33"
+                android:layout_marginStart="14dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/s4"
+                android:layout_weight="33"
+                android:layout_marginStart="21dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/s5"
+                android:layout_weight="33"
+                android:layout_marginStart="28dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/s6"
+                android:layout_weight="33"
+                android:layout_marginStart="35dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/s7"
+                android:layout_weight="33"
+                android:layout_marginStart="42dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/s8"
+                android:layout_weight="33"
+                android:layout_marginStart="49dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/c1"
+                android:layout_weight="33"
+                android:layout_marginStart="56dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/c2"
+                android:layout_weight="33"
+                android:layout_marginStart="63dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/c3"
+                android:layout_weight="33"
+                android:layout_marginStart="70dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/c4"
+                android:layout_weight="33"
+                android:layout_marginStart="77dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/c5"
+                android:layout_weight="33"
+                android:layout_marginStart="84dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/c6"
+                android:layout_weight="33"
+                android:layout_marginStart="91dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/c7"
+                android:layout_weight="33"
+                android:layout_marginStart="98dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/c8"
+                android:layout_weight="33"
+                android:layout_marginStart="105dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date"
+                android:layout_weight="33"
+                android:layout_marginStart="112dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="231"
+    android:weightSum="100"
     android:orientation="horizontal">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/s1"
-        android:layout_weight="33"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/s2"
-        android:layout_weight="33"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/s3"
-        android:layout_weight="33"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="20dp" />
+
+
    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/s4"
         android:layout_weight="33"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp" />
+       android:layout_marginStart="-40dp"/>
    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/s5"
+        android:layout_weight="33"
+       android:layout_marginStart="-60dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/s6"
+        android:layout_weight="33"
+        android:layout_marginStart="-80dp" />
+    <TextView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:id="@+id/s7"
+         android:layout_weight="33"
+        android:layout_marginStart="-100dp"/>
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:id="@+id/s8"
+         android:layout_weight="33"
+         android:layout_marginStart="-120dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/c1"
+        android:layout_weight="33"
+        android:layout_marginStart="-140dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/c2"
+        android:layout_weight="33"
+        android:layout_marginStart="-160dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/c3"
+        android:layout_weight="33"
+        android:layout_marginStart="-180dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/c4"
+        android:layout_weight="33"
+        android:layout_marginStart="-200dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/c5"
         android:layout_weight="33"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -49,94 +198,30 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/s6"
+        android:id="@+id/c6"
         android:layout_weight="33"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp" />
     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/s7"
-         android:layout_weight="33"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentLeft="true"
-         android:layout_marginLeft="20dp" />
-     <!--<TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/s8"
-         android:layout_weight="33"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentRight="true"
-         android:layout_marginRight="20dp" />
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/c1"
-         android:layout_weight="33"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentLeft="true"
-         android:layout_marginLeft="20dp" />
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/c2"
-         android:layout_weight="33"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentRight="true"
-         android:layout_marginRight="20dp" />
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/c3"
-         android:layout_weight="33"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentLeft="true"
-         android:layout_marginLeft="20dp" />
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/c4"
-         android:layout_weight="33"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentRight="true"
-         android:layout_marginRight="20dp" />
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/c5"
-         android:layout_weight="33"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentLeft="true"
-         android:layout_marginLeft="20dp" />
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/c6"
-         android:layout_weight="33"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentRight="true"
-         android:layout_marginRight="20dp" />
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/c7"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentLeft="true"
-         android:layout_marginLeft="20dp" />
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/c8"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentRight="true"
-         android:layout_marginRight="20dp" />
-      <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/date"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentRight="true"
-         android:layout_marginRight="20dp" />-->
-</LinearLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/c7"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/c8"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/date"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp" />
+</LinearLayout>-->
