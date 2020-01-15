@@ -1,11 +1,8 @@
 <resources>
     <string name="app_name">cm_project2</string>
-    <string name="textView7">
-        Visualização de informação e progresso de um processo da Indústria 4.0.\n\n
-        1ºPasso: \n
-        2ºPasso: \n
-        3ºPasso: \n\n
+    <string name="btn_carregarDados">Carregar dados</string>
+    <string name="btn_iniciarProcesso">Iniciar processo</string>
+    <string name="txtView_dadosProcesso">Dados a ser processados:</string>
 
-    </string>
-    <string name="textView3">Instruções</string>
+
 </resources>
