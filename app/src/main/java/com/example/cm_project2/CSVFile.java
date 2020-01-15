@@ -21,7 +21,7 @@ public class CSVFile {
         try {
             String csvLine;
             while ((csvLine = reader.readLine()) != null) {
-                String[] row = csvLine.split(",");
+                String[] row = csvLine.replaceAll("<", "").replaceAll(">", "").split(",");
                 resultList.add(row);
             }
         }
