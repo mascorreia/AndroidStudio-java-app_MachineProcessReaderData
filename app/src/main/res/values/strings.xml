@@ -21,6 +21,12 @@
         \n3º Passo: Visualizar o porcesso a decorrer;
         \n
         \n4º Passo: Visualizar estatisticas.
+        \n
+        \nNota: O processo da linha de montagem é representado através de animações.
+        \nUm tapete preto vai servir para que os cilindros rolem sobre o mesmo e existem 3 saidas possiveis com sensores especificos para cada cilindro:
+        \nSensor para o cilindro Preto;
+        \nSensor para cilindro Branco;
+        \nSensor para cilindro de Metal;
 
 
 
