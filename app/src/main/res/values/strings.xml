@@ -11,10 +11,19 @@
 
     <!-- InstructionsActivity - activity_process -->
     <string name="textView7">
-        Visualização de informação e progresso de um processo da Indústria 4.0.\n\n
-        1ºPasso: \n
-        2ºPasso: \n
-        3ºPasso: \n\n
+        \n
+        \nExplicação do Processo 2 - Estação 5 no contexto da aplicação TrackProcess
+        \n
+        \n1º Passo: Carregar os dados;
+        \n
+        \n2º Passo: Iniciar processo;
+        \n
+        \n3º Passo: Visualizar o porcesso a decorrer;
+        \n
+        \n4º Passo: Visualizar estatisticas.
+
+
+
 
     </string>
     <string name="textView3">Instruções</string>
