@@ -2,9 +2,12 @@ package com.example.cm_project2;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.format.DateFormat;
+import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -33,8 +36,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE1_NAME);
-
     }
 
     @Override
@@ -50,6 +51,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE1_NAME);
         onCreate(db);
+    }
+
+    public void resetCsvTable(SQLiteDatabase db){
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE1_NAME);
     }
 
     public boolean insertData(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8,
@@ -80,5 +85,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
+
+    public Cursor getAllData(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " + TABLE1_NAME + " WHERE " + COL_1 + " = " + id, null);
+        return res;
+    }
+
+    public int countLines(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Integer count = (int) (long) DatabaseUtils.queryNumEntries(db, TABLE1_NAME);
+        return count;
+    }
+
 
 }

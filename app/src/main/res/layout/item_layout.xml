@@ -16,104 +16,87 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/s1"
-                android:layout_weight="33" />
+                android:id="@+id/s1" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s2"
-                android:layout_weight="33"
-                android:layout_marginStart="7dp"/>
+                android:layout_marginStart="8dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s3"
-                android:layout_weight="33"
-                android:layout_marginStart="14dp"/>
+                android:layout_marginStart="16dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s4"
-                android:layout_weight="33"
-                android:layout_marginStart="21dp"/>
+                android:layout_marginStart="23dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s5"
-                android:layout_weight="33"
-                android:layout_marginStart="28dp"/>
+                android:layout_marginStart="30dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s6"
-                android:layout_weight="33"
-                android:layout_marginStart="35dp"/>
+                android:layout_marginStart="37dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s7"
-                android:layout_weight="33"
-                android:layout_marginStart="42dp"/>
+                android:layout_marginStart="44dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s8"
-                android:layout_weight="33"
-                android:layout_marginStart="49dp"/>
+                android:layout_marginStart="51dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/c1"
-                android:layout_weight="33"
-                android:layout_marginStart="56dp"/>
+                android:layout_marginStart="58dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/c2"
-                android:layout_weight="33"
-                android:layout_marginStart="63dp"/>
+                android:layout_marginStart="65dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/c3"
-                android:layout_weight="33"
-                android:layout_marginStart="70dp"/>
+                android:layout_marginStart="72dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/c4"
-                android:layout_weight="33"
-                android:layout_marginStart="77dp"/>
+                android:layout_marginStart="79dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/c5"
-                android:layout_weight="33"
-                android:layout_marginStart="84dp"/>
+                android:layout_marginStart="86dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/c6"
-                android:layout_weight="33"
-                android:layout_marginStart="91dp"/>
+                android:layout_marginStart="93dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/c7"
-                android:layout_weight="33"
-                android:layout_marginStart="98dp"/>
+                android:layout_marginStart="100dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/c8"
-                android:layout_weight="33"
-                android:layout_marginStart="105dp"/>
+                android:layout_marginStart="107dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/date"
-                android:layout_weight="33"
-                android:layout_marginStart="112dp"/>
+                android:layout_marginStart="117dp"/>
 
         </RelativeLayout>
 
@@ -121,107 +104,3 @@
 
 
 </RelativeLayout>
-
-
-<!--<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="100"
-    android:orientation="horizontal">
-
-
-
-
-   <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/s4"
-        android:layout_weight="33"
-       android:layout_marginStart="-40dp"/>
-   <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/s5"
-        android:layout_weight="33"
-       android:layout_marginStart="-60dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/s6"
-        android:layout_weight="33"
-        android:layout_marginStart="-80dp" />
-    <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/s7"
-         android:layout_weight="33"
-        android:layout_marginStart="-100dp"/>
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/s8"
-         android:layout_weight="33"
-         android:layout_marginStart="-120dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/c1"
-        android:layout_weight="33"
-        android:layout_marginStart="-140dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/c2"
-        android:layout_weight="33"
-        android:layout_marginStart="-160dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/c3"
-        android:layout_weight="33"
-        android:layout_marginStart="-180dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/c4"
-        android:layout_weight="33"
-        android:layout_marginStart="-200dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/c5"
-        android:layout_weight="33"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/c6"
-        android:layout_weight="33"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/c7"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/c8"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/date"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp" />
-</LinearLayout>-->
