@@ -13,6 +13,7 @@ public class SplashActivity extends AppCompatActivity {
 
     RingProgressBar ringProgressBar1;
 
+
     int progress = 0;
 
     Handler myHandler  = new Handler(){
@@ -37,6 +38,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         ringProgressBar1 = (RingProgressBar) findViewById(R.id.progress_bar_1);
+        ringProgressBar1.setAlpha(1);
 
         new Thread(new Runnable() {
             @Override
