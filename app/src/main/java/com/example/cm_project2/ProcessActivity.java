@@ -68,6 +68,7 @@ public class ProcessActivity extends AppCompatActivity {
         for (int i = 0; i < myDb.countLines(); i++) {
             for (int j = 0; j < 1; j++) {
                 getColumnLineData(i,j);
+                showMessage(getColumnLineData(i,j));
             }
         }
     }
