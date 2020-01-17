@@ -13,6 +13,25 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/background" />
 
+    <io.netopen.hotbitmapgg.library.view.RingProgressBar
+
+        android:id="@+id/progress_bar_1"
+        android:layout_width="166dp"
+        android:layout_height="176dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="127dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="286dp"
+        app:max="100"
+        app:ringColor="@android:color/holo_red_dark"
+        app:ringProgressColor="#371200"
+        app:ringWidth="3dp"
+        app:style="FILL"
+        app:textIsShow="true"
+        app:textSize="16sp" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="210dp"
@@ -27,37 +46,20 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="103dp"
-        android:layout_height="wrap_content"
+        android:layout_width="266dp"
+        android:layout_height="49dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="169dp"
-        android:text="Luban"
+        android:layout_marginStart="73dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="131dp"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/app_name"
         android:textAlignment="center"
+        android:textColor="@color/colorBrown"
         android:textSize="30sp"
-        android:textStyle=""/>
-
-    <io.netopen.hotbitmapgg.library.view.RingProgressBar
-
-        android:id="@+id/progress_bar_1"
-        android:layout_width="166dp"
-        android:layout_height="176dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="127dp"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="286dp"
-        app:max="100"
-        app:ringColor="@android:color/holo_red_dark"
-        app:ringProgressColor="@color/coloGray"
-        app:ringWidth="3dp"
-        app:style="FILL"
-        app:textIsShow="true"
-        app:textSize="16sp" />
+        android:textStyle="bold|italic" />
 
 
 </RelativeLayout>

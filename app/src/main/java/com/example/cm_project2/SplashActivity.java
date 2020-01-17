@@ -38,15 +38,13 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         ringProgressBar1 = (RingProgressBar) findViewById(R.id.progress_bar_1);
-        ringProgressBar1.setAlpha(1);
-
         new Thread(new Runnable() {
             @Override
             public void run() {
                 for(int i = 0; i < 100; i++){
 
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(50);
                         myHandler.sendEmptyMessage(0);
                     }catch (InterruptedException e){
                         e.printStackTrace();
@@ -66,6 +64,6 @@ public class SplashActivity extends AppCompatActivity {
 
                 finish();
             }
-        }, 10000);
+        }, 5000);
     }
 }
