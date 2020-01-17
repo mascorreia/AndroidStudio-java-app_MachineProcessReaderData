@@ -29,17 +29,15 @@ public class ProcessActivity extends AppCompatActivity {
 
         btn = (Button)findViewById(R.id.button);
 
-
-
-        Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.lefttoright);
+       /*Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.lefttoright);
         animation.setDuration(10000);
-        btn.startAnimation(animation);
+        btn.startAnimation(animation);*/
 
         //line = myDb.countLines(); //22 //Criar ciclo for dentro de outro em que lê a primeira linha de dados, executa os movimentos pretendidos para essa primeira linha e só depois avança para a proxima
         //column = 17;
         //getColumnLineData(column, line);
         //Log.d("TAG", "getColumnLineData: " + getColumnLineData(column, line));
-
+        processAnimation();
     }
 
     //Read database data and compare with values.
@@ -65,10 +63,19 @@ public class ProcessActivity extends AppCompatActivity {
     }
 
     public void processAnimation(){
-        for (int i = 0; i < myDb.countLines(); i++) {
-            for (int j = 0; j < 1; j++) {
-                getColumnLineData(i,j);
-                showMessage(getColumnLineData(i,j));
+        for (int i = 1; i < myDb.countLines(); i++) { //linha
+            for (int j = 1; j < 18; j++) { //Coluna
+                String col_1 = getColumnLineData(j,i);
+                //Log.d("TAG", "Linha: " + i);
+                //Log.d("TAG", "Coluna: " + j);
+                //Log.d("TAG", "-----------col_1: " + col_1);
+                //Log.d("TAG", "col_1 = 1: " + col_1);
+                if(col_1.equals("1")){
+                    Log.d("TAG", "ENTROU NO IF EQUALS");
+                    Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.lefttoright);
+                    animation.setDuration(1500);
+                    btn.startAnimation(animation);
+                }
             }
         }
     }

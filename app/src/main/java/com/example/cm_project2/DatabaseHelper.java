@@ -53,7 +53,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void resetCsvTable(SQLiteDatabase db){
+    public void resetCsvTable(){
+        SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DROP TABLE IF EXISTS " + TABLE1_NAME);
     }
 
