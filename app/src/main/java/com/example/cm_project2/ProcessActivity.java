@@ -73,6 +73,7 @@ public class ProcessActivity extends AppCompatActivity {
     }
 
     //Do Animations
+    @SuppressWarnings("SpellCheckingInspection")
     public void processAnimation(){
         for (int i = 1; i < myDb.countLines(); i++) {
             for (int j = 1; j < 18; j++) {
@@ -83,6 +84,7 @@ public class ProcessActivity extends AppCompatActivity {
                 //Log.d("TAG", "-----------col_1: " + col_1);
                 //Log.d("TAG", "col_1 = 1: " + col_1);
                 switch (col_name) {
+                    //S1 ou SI: Se existe uma peça presente no tapete na posição ninicial: bit a 1, caso contrário:nbit a 0
                     case "S1":
                         if (col_value.equals("1")) {
                             //Log.d("TAG", "Coluna 1: " + col_name + " = " + col_value);
@@ -93,39 +95,39 @@ public class ProcessActivity extends AppCompatActivity {
                             //Log.d("TAG", "Coluna 0: " + col_name + " = " + col_value);
                         }
                     case "S2":
-                       //Do Something
+                        //S2 ou SM: se a peça é de metal: bit a 1, caso contrário: bit a 0
                     case "S3":
-                        //Do Something
+                        //S3: Se a peça é branca: bit a 1, caso contrário: bit a 0
                     case "S4":
-                        //Do Something
+                        //S4 ou SA: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro A e este voltou à posição original (recuo): bit a 1,caso contrário: bit a 0
                     case "S5":
-                        //Do Something
+                        //S5 ou SB: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro B e este voltou à posição original (recuo): bit a 1, caso contrário: bit a 0
                     case "S6":
-                        //Do Something
-                    case "S7":
+                        //S6 ou SC: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro C e este voltou à posição original (recuo): bit a 1, caso contrário: bit a 0
+                    /*case "S7":
                         //Do Something
                     case "S8":
                         //Do Something
                     case "C1":
-                        //Do Something
+                        //C1 (HL1): Estado Laranja (ligado: bit a 1, desligado: bit a 0)
                     case "C2":
-                        //Do Something
+                        //C2 (HL2): Estado Verde (ligado: bit a 1, desligado: bit a 0)
                     case "C3":
-                        //Do Something
+                        //C3 (HL3): Estado Vermelho (ligado: bit a 1, desligado: bit a 0)
                     case "C4":
-                        //Do Something
+                        //C4 (SB1): Ordem de Execução Start (quando pressionado: bit a 1, caso contrário bit a 0)
                     case "C5":
-                        //Do Something
+                        //C5 (SB2): Ordem de Execução Stop (quando pressionado: bit a 1, caso contrário bit a 0)
                     case "C6":
-                        //Do Something
+                        //C6 (SA): Modo de Seleção (bit a 0) ou Modo de Execução (bit a 1)
                     case "C7":
-                        //Do Something
+                        //C7 (QS): Emergência (quando pressionado: bit a 1, caso contrário bit a 0)
                     case "C8":
-                        //Do Something
+                        //Componente não existente com bit sempre a 0
                     case "C9":
                         //Do Something
                     case "DATE":
-                        //Do Something
+                        //Do Something*/
                         break;
                 }
             }
