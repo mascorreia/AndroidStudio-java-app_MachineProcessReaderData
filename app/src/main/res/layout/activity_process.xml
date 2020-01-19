@@ -13,6 +13,20 @@
         android:layout_height="wrap_content"
         android:src="@drawable/background" />
 
+
+    <Button
+        android:id="@+id/btnStatistics"
+        android:layout_width="115dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="132dp"
+        android:background="@drawable/rounded_button_time"
+        android:text="@string/btn_Estatisticas"
+        android:textColor="@color/colorWhite"
+        android:textSize="10sp" />
+
     <Button
         android:id="@+id/cylinderC"
         android:layout_width="101dp"

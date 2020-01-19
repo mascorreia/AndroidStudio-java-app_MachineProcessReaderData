@@ -56,6 +56,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void resetCsvTable(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DROP TABLE IF EXISTS " + TABLE1_NAME);
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE1_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "S1 TEXT, S2 TEXT, S3 TEXT, S4 TEXT, S5 TEXT, S6 TEXT, S7 TEXT, S8 TEXT," +
+                "C1 TEXT, C2 TEXT, C3 TEXT, C4 TEXT, C5 TEXT, C6 TEXT, C7 TEXT, C8 TEXT, DATE TEXT) ");
     }
 
     public boolean insertData(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8,
@@ -97,6 +100,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Integer count = (int) (long) DatabaseUtils.queryNumEntries(db, TABLE1_NAME);
         return count;
+    }
+
+    public Cursor countPieces(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT SUM(S1) FROM " + TABLE1_NAME + " WHERE S1 = 1", null);
+        return res;
+    }
+
+    public Cursor countIndividualPieces(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT SUM(" + COL_3 + "), SUM(" + COL_4 + "), SUM(" + COL_2 + ") - SUM(" + COL_3 + ") - SUM(" + COL_4 + ") FROM " + TABLE1_NAME + " WHERE " + COL_2 + " = 1 or " + COL_3 + " = 1 or " + COL_4 + " = 1", null);
+        return res;
+
+
     }
 
 

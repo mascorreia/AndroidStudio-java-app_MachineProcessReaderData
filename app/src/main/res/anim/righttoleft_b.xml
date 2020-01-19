@@ -4,6 +4,6 @@
         android:fromXDelta="0%" android:toXDelta="-80%"
         android:fromYDelta="0%" android:toYDelta="0%"
         android:duration="700"
-        android:startOffset="7000"
+        android:startOffset="5500"
         />
 </set>

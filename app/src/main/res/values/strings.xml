@@ -30,4 +30,8 @@
     </string>
     <string name="textView3">Instruções</string>
 
+
+    <!-- StatisticsActivity - activity_statisticsv -->
+    <string name="btn_Estatisticas">Estatisticas</string>
+
 </resources>
