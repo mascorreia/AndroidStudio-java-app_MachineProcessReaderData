@@ -2,20 +2,32 @@ package com.example.cm_project2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 public class ProcessActivity extends AppCompatActivity {
 
+    private CustomView customView;
+
     DatabaseHelper myDb;
-    Button btn;
+    Button cylinderA;
+    Button cylinderB;
+    Button cylinderC;
     TextView mTxt;
+    RelativeLayout.LayoutParams lp;
+    ImageView imageView;
+    final Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,51 +37,17 @@ public class ProcessActivity extends AppCompatActivity {
         //Initialize database
         myDb = new DatabaseHelper(this);
 
-        //Button  Animated
-        btn = findViewById(R.id.button);
+        //Cylinders
+        cylinderA = findViewById(R.id.cylinderA);
+        cylinderB = findViewById(R.id.cylinderB);
+        cylinderC = findViewById(R.id.cylinderC);
 
-       /*Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.lefttoright);
-        animation.setDuration(10000);
-        btn.startAnimation(animation);*/
+        moveCylinder("A");
+        moveCylinder("B");
+        moveCylinder("C");
 
-        //line = myDb.countLines(); //22 //Criar ciclo for dentro de outro em que lê a primeira linha de dados, executa os movimentos pretendidos para essa primeira linha e só depois avança para a proxima
-        //column = 17;
-        //getColumnLineData(column, line);
-        //Log.d("TAG", "getColumnLineData: " + getColumnLineData(column, line));
         //Start Animation
         processAnimation();
-    }
-
-    //Read database data sensor
-    public String getSensorData(int column, int line){
-        Cursor res = myDb.getAllData(line);
-        if(res.getCount() == 0){
-            //show message;
-            Toast.makeText(ProcessActivity.this, "Erro! Não foram encontrados dados!", Toast.LENGTH_LONG).show();
-        }
-        StringBuilder buffer = new StringBuilder();
-        while(res.moveToNext()){
-            buffer.append(res.getString(column));
-        }
-            //Show all data
-        showMessage(buffer.toString());
-        return buffer.toString();
-    }
-
-    //Get column name from database
-    public String getColumn(int column, int line){
-        Cursor res = myDb.getAllData(line);
-        StringBuilder buffer = new StringBuilder();
-        while(res.moveToNext()){
-            buffer.append(res.getColumnName(column));
-        }
-        return buffer.toString();
-    }
-
-    //Transformar método para mostrar as mensagens de sensores ativos, tipo de peças detetadas e
-    public void showMessage(String message){
-        mTxt = findViewById(R.id.textView_test);
-        mTxt.setText(message);
     }
 
     //Do Animations
@@ -79,31 +57,52 @@ public class ProcessActivity extends AppCompatActivity {
             for (int j = 1; j < 18; j++) {
                 String col_name = getColumn(j, i);
                 String col_value = getSensorData(j,i);
-                //Log.d("TAG", "Linha: " + i);
-                //Log.d("TAG", "Coluna: " + j);
-                //Log.d("TAG", "-----------col_1: " + col_1);
-                //Log.d("TAG", "col_1 = 1: " + col_1);
                 switch (col_name) {
-                    //S1 ou SI: Se existe uma peça presente no tapete na posição ninicial: bit a 1, caso contrário:nbit a 0
                     case "S1":
+                        //S1 ou SI: Se existe uma peça presente no tapete na posição ninicial: bit a 1, caso contrário:nbit a 0
                         if (col_value.equals("1")) {
-                            //Log.d("TAG", "Coluna 1: " + col_name + " = " + col_value);
-                            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.lefttoright);
-                            animation.setDuration(1500);
-                            btn.startAnimation(animation);
+                            delayMessage(8000,"Encontra-se uma peça no copo de alimentação em espera!");
                         }else{
-                            //Log.d("TAG", "Coluna 0: " + col_name + " = " + col_value);
+                            delayMessage(16000,"Nenhuma peça se encontra em espera");
                         }
                     case "S2":
                         //S2 ou SM: se a peça é de metal: bit a 1, caso contrário: bit a 0
+                        if (col_value.equals("1")) {
+                            delayMessage(32000,"A peça é de metal!");
+                            createGrayPiece();
+                        }else{
+                            delayMessage(64000,"A não é de metal!");
+                        }
                     case "S3":
                         //S3: Se a peça é branca: bit a 1, caso contrário: bit a 0
+                        if (col_value.equals("1")) {
+                            delayMessage(128000,"A peça é branca!");
+                            createWhitePiece();
+                        }else{
+                            delayMessage(256000,"A peça não é branca!");
+                            createBlackPiece();
+                        }
                     case "S4":
                         //S4 ou SA: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro A e este voltou à posição original (recuo): bit a 1,caso contrário: bit a 0
+                        /*if (col_value.equals("1")) {
+                            delayMessage(512000,"A peça foi arrumada com sucesso pelo Cilindro A!");
+                        }else{
+                            delayMessage(1024000,"A peça não foi arrumada com sucesso pelo Cilindro A!");
+                        }*/
                     case "S5":
                         //S5 ou SB: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro B e este voltou à posição original (recuo): bit a 1, caso contrário: bit a 0
+                        /*if (col_value.equals("1")) {
+                            delayMessage(2048000,"A peça foi arrumada com sucesso pelo Cilindro B!");
+                        }else{
+                            delayMessage(4096000,"A peça não foi arrumada com sucesso pelo Cilindro B!");
+                        }*/
                     case "S6":
                         //S6 ou SC: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro C e este voltou à posição original (recuo): bit a 1, caso contrário: bit a 0
+                        /*if (col_value.equals("1")) {
+                            //delayMessage(8000,"A peça foi arrumada com sucesso pelo Cilindro C!");
+                        }else{
+                            //delayMessage(8000,"A peça não foi arrumada com sucesso pelo Cilindro C!");
+                        }*/
                     /*case "S7":
                         //Do Something
                     case "S8":
@@ -128,9 +127,132 @@ public class ProcessActivity extends AppCompatActivity {
                         //Do Something
                     case "DATE":
                         //Do Something*/
-                        break;
                 }
             }
         }
+    }
+
+    /*------- Create pieces --------*/
+
+    public void createBlackPiece(){
+        imageView = new ImageView(this); // initialize ImageView
+        lp = new RelativeLayout.LayoutParams(80, 80);
+        lp.addRule(RelativeLayout.ALIGN_BOTTOM); // A position in layout.
+        imageView.setLayoutParams(lp);
+        imageView.setImageResource(R.drawable.peca_pretaa);
+        RelativeLayout layout = findViewById(R.id.process_RelativeLayout);
+        layout.addView(imageView);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ObjectAnimator animationY = ObjectAnimator.ofFloat(imageView, "translationY", 500f);
+            animationY.setDuration(7000);
+            animationY.start();
+
+            ObjectAnimator animationX = ObjectAnimator.ofFloat(imageView, "translationX", 500f);
+            animationX.setStartDelay(7000);
+            animationX.setDuration(7000);
+            animationX.start();
+        }
+    }
+
+    public void createWhitePiece(){
+        imageView = new ImageView(this); // initialize ImageView
+        lp = new RelativeLayout.LayoutParams(80, 80);
+        lp.addRule(RelativeLayout.CENTER_IN_PARENT); // A position in layout.
+        imageView.setLayoutParams(lp);
+        imageView.setImageResource(R.drawable.peca_brancaa);
+        RelativeLayout layout = findViewById(R.id.process_RelativeLayout);
+        layout.addView(imageView);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ObjectAnimator animationY = ObjectAnimator.ofFloat(imageView, "translationY", -500f);
+            animationY.setDuration(7000);
+            animationY.start();
+
+            ObjectAnimator animationX = ObjectAnimator.ofFloat(imageView, "translationX", -500f);
+            animationX.setStartDelay(7000);
+            animationX.setDuration(7000);
+            animationX.start();
+        }
+    }
+
+    public void createGrayPiece(){
+        imageView = new ImageView(this); // initialize ImageView
+        lp = new RelativeLayout.LayoutParams(80, 80);
+        lp.addRule(RelativeLayout.CENTER_IN_PARENT); // A position in layout.
+        imageView.setLayoutParams(lp);
+        imageView.setImageResource(R.drawable.peca_cinzaa);
+        RelativeLayout layout = findViewById(R.id.process_RelativeLayout);
+        layout.addView(imageView);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ObjectAnimator animationY = ObjectAnimator.ofFloat(imageView, "translationY", -50f);
+            animationY.setDuration(7000);
+            animationY.start();
+
+            ObjectAnimator animationX = ObjectAnimator.ofFloat(imageView, "translationX", -50f);
+            animationX.setStartDelay(7000);
+            animationX.setDuration(7000);
+            animationX.start();
+        }
+    }
+
+    public void moveCylinder(String letter){
+        if(letter.equals("A")){
+            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.righttoleft);
+            animation.setDuration(3300);
+            //animation.setStartTime();
+            cylinderA.startAnimation(animation);
+        }else if (letter.equals("B")){
+            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.righttoleft);
+            animation.setDuration(3300);
+            cylinderB.startAnimation(animation);
+        }else{
+            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.righttoleft);
+            animation.setDuration(3300);
+            cylinderC.startAnimation(animation);
+        }
+    }
+
+    /*---------------------- Aux methods -------------*/
+
+    //Read database data sensor
+    public String getSensorData(int column, int line){
+        Cursor res = myDb.getAllData(line);
+        if(res.getCount() == 0){
+            //show message;
+            Toast.makeText(ProcessActivity.this, "Erro! Não foram encontrados dados!", Toast.LENGTH_LONG).show();
+        }
+        StringBuilder buffer = new StringBuilder();
+        while(res.moveToNext()){
+            buffer.append(res.getString(column));
+        }
+        //Show all data
+        return buffer.toString();
+    }
+
+    //Get column name from database
+    public String getColumn(int column, int line){
+        Cursor res = myDb.getAllData(line);
+        StringBuilder buffer = new StringBuilder();
+        while(res.moveToNext()){
+            buffer.append(res.getColumnName(column));
+        }
+        return buffer.toString();
+    }
+
+    //Messages
+    public void showMessage(String message){
+        mTxt = findViewById(R.id.textView_test);
+        mTxt.setText(message);
+    }
+
+    public void delayMessage(int delay, final String message){
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showMessage(message);
+            }
+        }, delay);
     }
 }

@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".StatisticsActivity"></activity>
-        <activity
+        <!--<activity
             android:name=".ProcessActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme" />-->
         <activity
             android:name=".InstructionsActivity"
             android:theme="@style/AppTheme" />
@@ -20,7 +20,7 @@
             android:name=".StartActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".ProcessActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
