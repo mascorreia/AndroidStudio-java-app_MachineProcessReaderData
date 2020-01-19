@@ -33,5 +33,6 @@
 
     <!-- StatisticsActivity - activity_statisticsv -->
     <string name="btn_Estatisticas">Estatisticas</string>
+    <string name="btn_sair">Sair</string>
 
 </resources>

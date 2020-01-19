@@ -112,9 +112,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT SUM(" + COL_3 + "), SUM(" + COL_4 + "), SUM(" + COL_2 + ") - SUM(" + COL_3 + ") - SUM(" + COL_4 + ") FROM " + TABLE1_NAME + " WHERE " + COL_2 + " = 1 or " + COL_3 + " = 1 or " + COL_4 + " = 1", null);
         return res;
-
-
     }
+
+    public Cursor countCommandInterface(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT SUM(" + COL_10 + "), SUM(" + COL_11 + "), SUM(" + COL_12 + "), SUM(" + COL_13 + "), SUM(" + COL_14 + "), SUM(" + COL_15 + "), SUM(" + COL_16 + ") FROM " + TABLE1_NAME, null);
+        return res;
+    }
+
+    public Cursor getProcessFinalTime(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT strftime('%f',MAX(" + COL_18 + ")) - strftime('%f', MIN(" + COL_18 + ")) FROM " + TABLE1_NAME, null);
+        return res;
+    }
+
 
 
 }

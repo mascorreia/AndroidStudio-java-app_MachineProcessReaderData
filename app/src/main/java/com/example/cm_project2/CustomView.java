@@ -5,15 +5,26 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 
+
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 public class CustomView extends View {
 
     private Rect square;
     private Paint paint;
+    private Paint green;
+    private Paint orange;
+    private Paint red;
+    private Paint start;
+    private Paint stop;
+    private Paint select;
+    private Paint emer;
+
 
     public CustomView(Context context) {
         super(context);
@@ -33,6 +44,7 @@ public class CustomView extends View {
         init(attrs);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public CustomView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
@@ -41,13 +53,72 @@ public class CustomView extends View {
 
     private void init(@Nullable AttributeSet set){
         square = new Rect();
-        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.GREEN);
+
+        green = new Paint(Paint.ANTI_ALIAS_FLAG);
+        green.setColor(Color.rgb(204,255,204));
+
+        orange = new Paint(Paint.ANTI_ALIAS_FLAG);
+        orange.setColor(Color.rgb(255, 194, 153));
+
+        red = new Paint(Paint.ANTI_ALIAS_FLAG);
+        red.setColor(Color.rgb(255, 153, 153));
+
+        start = new Paint(Paint.ANTI_ALIAS_FLAG);
+        start.setColor(Color.rgb(204,255,204));
+
+        stop = new Paint(Paint.ANTI_ALIAS_FLAG);
+        stop.setColor(Color.rgb(255, 153, 153));
+
+        select = new Paint(Paint.ANTI_ALIAS_FLAG);
+        select.setColor(Color.rgb(204, 204, 204));
+
+        emer = new Paint(Paint.ANTI_ALIAS_FLAG);
+        emer.setColor(Color.rgb(255, 153, 153));
+
+
+
+        paint = new Paint();
 
     }
 
-    public void swapColor() {
-        paint.setColor(paint.getColor() == Color.GREEN ? Color.RED : Color.GREEN);
+    public void swapColorGreen() {
+        green.setColor(green.getColor() == Color.GREEN ? Color.rgb(204,255,204) : Color.GREEN);
+
+        postInvalidate();
+    }
+
+    public void swapColorOrange() {
+        orange.setColor(orange.getColor() == Color.rgb(255, 102, 0) ? Color.rgb(255, 194, 153) : Color.rgb(255, 102, 0));
+
+        postInvalidate();
+    }
+
+    public void swapColorRed() {
+        red.setColor(red.getColor() == Color.RED ? Color.rgb(255, 153, 153) : Color.RED);
+
+        postInvalidate();
+    }
+
+    public void swapColorStart() {
+        start.setColor(start.getColor() == Color.GREEN ? Color.rgb(204,255,204) : Color.GREEN);
+
+        postInvalidate();
+    }
+
+    public void swapColorStop() {
+        stop.setColor(stop.getColor() == Color.RED ? Color.rgb(255, 153, 153) : Color.RED);
+
+        postInvalidate();
+    }
+
+    public void swapColorSelect() {
+        select.setColor(select.getColor() == Color.BLACK ? Color.rgb(204, 204, 204) : Color.BLACK);
+
+        postInvalidate();
+    }
+
+    public void swapColorEmer() {
+        emer.setColor(emer.getColor() == Color.RED ? Color.rgb(255, 153, 153) : Color.RED);
 
         postInvalidate();
     }
@@ -185,14 +256,37 @@ public class CustomView extends View {
         // S3 direita
         canvas.drawRect(650,1420,1010,1430,paint);
 
-        /*square.left = 400;
-        square.top = 500;
-        square.right = 700;
-        square.bottom = 800;
+
+        // Botão Verde
+        square.left = 300;
+        square.top = 1670;
+        square.right = 400;
+        square.bottom = 1770;
+        canvas.drawRect(square,green);
 
 
+        // Botão Laranja
+        canvas.drawRect(180, 1670,280,1770,orange);
 
-        canvas.drawRect(square,squareP);*/
+
+        // Botão Vermelho
+        canvas.drawRect(420,1670,520,1770,red);
+
+
+        // Botão Start
+        canvas.drawRect(620,1670,720,1770,start);
+
+
+        // Botão Stop
+        canvas.drawRect(740,1670,840,1770,stop);
+
+
+        // Botão Select
+        canvas.drawRect(940, 1670,1040,1770,select);
+
+
+        // Botão Emer
+        canvas.drawRect(1060,1660,1180,1780,emer);
 
     }
 }

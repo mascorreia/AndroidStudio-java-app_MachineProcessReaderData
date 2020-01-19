@@ -18,13 +18,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static android.os.SystemClock.sleep;
-
 
 public class ProcessActivity extends AppCompatActivity {
 
     private CustomView customView;
-
     DatabaseHelper myDb;
     Button cylinderA;
     Button cylinderB;
@@ -35,7 +32,6 @@ public class ProcessActivity extends AppCompatActivity {
     ImageView imageView;
     String col_value;
     final Handler handler = new Handler();
-
     String s2_value;
     String s3_value;
 
@@ -46,6 +42,8 @@ public class ProcessActivity extends AppCompatActivity {
 
         //Initialize database
         myDb = new DatabaseHelper(this);
+
+        customView = findViewById(R.id.customView);
 
         //Cylinders
         cylinderA = findViewById(R.id.cylinderA);
@@ -71,7 +69,6 @@ public class ProcessActivity extends AppCompatActivity {
         );
     }
 
-    //Do Animations
     @SuppressWarnings("SpellCheckingInspection")
     public void processAnimation() {
         for (int i = 1; i < myDb.countLines(); i++) {
@@ -103,6 +100,7 @@ public class ProcessActivity extends AppCompatActivity {
                             if (col_value.equals("1")) {
                                 showMessage("A peça é de branca!");
                                 createPiece("white");
+                                customView.swapColorGreen();
                             } else {
                                 s3_value = "0";
                                 showMessage("A peça não é branca!");

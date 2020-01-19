@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".StatisticsActivity">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/background" />
+
     <TextView
         android:id="@+id/textView11"
         android:layout_width="165dp"
@@ -53,12 +59,24 @@
 
     <TextView
         android:id="@+id/textView_statistics"
-        android:layout_width="316dp"
-        android:layout_height="62dp"
+        android:layout_width="326dp"
+        android:layout_height="542dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="47dp"
-        android:layout_marginBottom="500dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="20dp"
         android:text="TextView"
         android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_sair"
+        android:layout_width="111dp"
+        android:layout_height="27dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/rounded_button_time"
+        android:text="@string/btn_sair"
+        android:textColor="@color/colorWhite" />
 </RelativeLayout>
