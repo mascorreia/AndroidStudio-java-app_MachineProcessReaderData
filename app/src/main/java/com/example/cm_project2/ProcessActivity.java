@@ -42,8 +42,8 @@ public class ProcessActivity extends AppCompatActivity {
         cylinderB = findViewById(R.id.cylinderB);
         cylinderC = findViewById(R.id.cylinderC);
 
-        moveCylinder("A");
-        moveCylinder("B");
+        //moveCylinder("A");
+        //moveCylinder("B");
         moveCylinder("C");
 
         //Start Animation
@@ -67,19 +67,19 @@ public class ProcessActivity extends AppCompatActivity {
                         }
                     case "S2":
                         //S2 ou SM: se a peça é de metal: bit a 1, caso contrário: bit a 0
-                        if (col_value.equals("1")) {
+                        /*if (col_value.equals("1")) {
                             delayMessage(32000,"A peça é de metal!");
                             createGrayPiece();
                         }else{
                             delayMessage(64000,"A não é de metal!");
-                        }
+                        }*/
                     case "S3":
                         //S3: Se a peça é branca: bit a 1, caso contrário: bit a 0
                         if (col_value.equals("1")) {
-                            delayMessage(128000,"A peça é branca!");
-                            createWhitePiece();
+                            //delayMessage(128000,"A peça é branca!");
+                            //createWhitePiece();
                         }else{
-                            delayMessage(256000,"A peça não é branca!");
+                            //delayMessage(256000,"A peça não é branca!");
                             createBlackPiece();
                         }
                     case "S4":
@@ -137,18 +137,18 @@ public class ProcessActivity extends AppCompatActivity {
     public void createBlackPiece(){
         imageView = new ImageView(this); // initialize ImageView
         lp = new RelativeLayout.LayoutParams(80, 80);
-        lp.addRule(RelativeLayout.ALIGN_BOTTOM); // A position in layout.
+        lp.setMargins(800,1850,0,0);
         imageView.setLayoutParams(lp);
         imageView.setImageResource(R.drawable.peca_pretaa);
         RelativeLayout layout = findViewById(R.id.process_RelativeLayout);
         layout.addView(imageView);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ObjectAnimator animationY = ObjectAnimator.ofFloat(imageView, "translationY", 500f);
+            ObjectAnimator animationY = ObjectAnimator.ofFloat(imageView, "translationY", -1090f);
             animationY.setDuration(7000);
             animationY.start();
 
-            ObjectAnimator animationX = ObjectAnimator.ofFloat(imageView, "translationX", 500f);
+            ObjectAnimator animationX = ObjectAnimator.ofFloat(imageView, "translationX", -595f);
             animationX.setStartDelay(7000);
             animationX.setDuration(7000);
             animationX.start();
@@ -158,18 +158,18 @@ public class ProcessActivity extends AppCompatActivity {
     public void createWhitePiece(){
         imageView = new ImageView(this); // initialize ImageView
         lp = new RelativeLayout.LayoutParams(80, 80);
-        lp.addRule(RelativeLayout.CENTER_IN_PARENT); // A position in layout.
+        lp.setMargins(800,1850,0,0);
         imageView.setLayoutParams(lp);
         imageView.setImageResource(R.drawable.peca_brancaa);
         RelativeLayout layout = findViewById(R.id.process_RelativeLayout);
         layout.addView(imageView);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ObjectAnimator animationY = ObjectAnimator.ofFloat(imageView, "translationY", -500f);
+            ObjectAnimator animationY = ObjectAnimator.ofFloat(imageView, "translationY", -545f);
             animationY.setDuration(7000);
             animationY.start();
 
-            ObjectAnimator animationX = ObjectAnimator.ofFloat(imageView, "translationX", -500f);
+            ObjectAnimator animationX = ObjectAnimator.ofFloat(imageView, "translationX", -595f);
             animationX.setStartDelay(7000);
             animationX.setDuration(7000);
             animationX.start();
@@ -179,7 +179,7 @@ public class ProcessActivity extends AppCompatActivity {
     public void createGrayPiece(){
         imageView = new ImageView(this); // initialize ImageView
         lp = new RelativeLayout.LayoutParams(80, 80);
-        lp.addRule(RelativeLayout.CENTER_IN_PARENT); // A position in layout.
+        lp.setMargins(800,1850,0,0);
         imageView.setLayoutParams(lp);
         imageView.setImageResource(R.drawable.peca_cinzaa);
         RelativeLayout layout = findViewById(R.id.process_RelativeLayout);
@@ -199,19 +199,18 @@ public class ProcessActivity extends AppCompatActivity {
 
     public void moveCylinder(String letter){
         if(letter.equals("A")){
-            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.righttoleft);
+            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.righttoleft_a);
             animation.setDuration(3300);
-            //animation.setStartTime();
             cylinderA.startAnimation(animation);
-        }else if (letter.equals("B")){
-            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.righttoleft);
+        }/*else if (letter.equals("B")){
+            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.righttoleft_b);
             animation.setDuration(3300);
             cylinderB.startAnimation(animation);
         }else{
-            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.righttoleft);
+            Animation animation = AnimationUtils.loadAnimation(ProcessActivity.this, R.anim.righttoleft_c);
             animation.setDuration(3300);
             cylinderC.startAnimation(animation);
-        }
+        }*/
     }
 
     /*---------------------- Aux methods -------------*/
