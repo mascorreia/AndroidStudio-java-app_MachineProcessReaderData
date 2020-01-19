@@ -77,6 +77,7 @@
         android:layout_marginEnd="118dp"
         android:layout_marginBottom="635dp"
         android:text="Processo"
+        android:textColor="@color/colorBrown"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -94,6 +95,7 @@
         android:layout_marginBottom="8dp"
         android:text="Estados"
         android:textAlignment="center"
+        android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

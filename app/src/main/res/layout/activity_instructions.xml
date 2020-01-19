@@ -58,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="50dp"
                 android:paddingEnd="50dp"
+                android:textColor="@color/colorBlack"
                 android:text="@string/textView7"
                 android:textSize="18sp" />
 
@@ -67,6 +68,7 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="359dp"
+        android:textColor="@color/colorBrown"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
