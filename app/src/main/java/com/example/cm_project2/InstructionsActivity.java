@@ -14,7 +14,7 @@ public class InstructionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructions);
 
-        Button btn = (Button)findViewById(R.id.btnSeguinte);
+        Button btn = findViewById(R.id.btnSeguinte);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -84,10 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_18, date);
 
         long result = db.insert(TABLE1_NAME, null, contentValues);
-        if(result == -1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
 
     public Cursor getAllData(int id){

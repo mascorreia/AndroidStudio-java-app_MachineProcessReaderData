@@ -37,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        ringProgressBar1 = (RingProgressBar) findViewById(R.id.progress_bar_1);
+        ringProgressBar1 = findViewById(R.id.progress_bar_1);
         new Thread(new Runnable() {
             @Override
             public void run() {

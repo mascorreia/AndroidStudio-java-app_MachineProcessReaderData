@@ -41,7 +41,7 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        listView = (ListView) findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
         Parcelable state = listView.onSaveInstanceState();
@@ -56,7 +56,7 @@ public class StartActivity extends Activity {
             itemArrayAdapter.add(scoreData);
         }
 
-        btnAddData = (Button) findViewById(R.id.btnAddData);
+        btnAddData = findViewById(R.id.btnAddData);
 
         //Initialize database
         myDb = new DatabaseHelper(this);
