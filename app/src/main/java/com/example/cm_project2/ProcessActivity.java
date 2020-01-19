@@ -34,6 +34,7 @@ public class ProcessActivity extends AppCompatActivity {
     final Handler handler = new Handler();
     String s2_value;
     String s3_value;
+    String s1_value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,65 +72,64 @@ public class ProcessActivity extends AppCompatActivity {
 
     @SuppressWarnings("SpellCheckingInspection")
     public void processAnimation() {
-        for (int i = 1; i < myDb.countLines(); i++) {
+        for (int i = 1; i < 7; i++) {
             for (int j = 1; j < 18; j++) {
-                //delay(100000);
-                //if (i == 1) {
                 String col_name = getColumn(j, i);
                 String col_value = getSensorData(j, i);
-
-                    switch (col_name) {
-                        case "S1":
-                            //S1 ou SI: Se existe uma peça presente no tapete na posição ninicial: bit a 1, caso contrário:nbit a 0
-                            if (col_value.equals("1")) {
-                                showMessage("Encontra-se uma peça na posição inicial!");
-                            }
-                            break;
-                        case "S2":
-                            //S2 ou SM: se a peça é de metal: bit a 1, caso contrário: bit a 0
-                            if (col_value.equals("1")) {
-                                showMessage("A peça é de metal!");
-                                createPiece("metal");
-                            } else {
-                                s2_value = "0";
-                                showMessage("A peça não é de metal!");
-                            }
-                            break;
-                        case "S3":
-                            //S3: Se a peça é branca: bit a 1, caso contrário: bit a 0
-                            if (col_value.equals("1")) {
-                                showMessage("A peça é de branca!");
-                                createPiece("white");
-                                customView.swapColorGreen();
-                            } else {
-                                s3_value = "0";
-                                showMessage("A peça não é branca!");
-                                if (s3_value.equals(s2_value)) {
-                                    //createPiece("black");
-                                }
-                            }
-                            break;
-                        case "S4":
-                            //S4 ou SA: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro A e este voltou à posição original (recuo): bit a 1,caso contrário: bit a 0
-                            if (col_value.equals("1")) {
-                                movePiece("metal", true, true);
-                                moveCylinder("A");
-                                //delayMessage(512000, "A peça foi arrumada com sucesso pelo Cilindro A!");
-                            } else {
-                                //delayMessage(1024000, "A peça não foi arrumada com sucesso pelo Cilindro A! Ainda encontra-se na posição inicial.");
-                            }
-                            break;
-                        case "S5":
-                            //S5 ou SB: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro B e este voltou à posição original (recuo): bit a 1, caso contrário: bit a 0
-                            if (col_value.equals("1")) {
-                                movePiece("white", true, true);
-                                moveCylinder("B");
-                                //delayMessage(2048000,"A peça foi arrumada com sucesso pelo Cilindro B!");
-                            } else {
-                                //delayMessage(4096000,"A peça não foi arrumada com sucesso pelo Cilindro B!");
-                            }
-                            break;
-                    }
+                switch (col_name) {
+                    case "S1":
+                        //S1 ou SI: Se existe uma peça presente no tapete na posição ninicial: bit a 1, caso contrário:nbit a 0
+                        if (col_value.equals("1")) {
+                            s1_value = "1";
+                            showMessage("Encontra-se uma peça na posição inicial!");
+                        }
+                        break;
+                    case "S2":
+                        //S2 ou SM: se a peça é de metal: bit a 1, caso contrário: bit a 0
+                        if (col_value.equals("1")) {
+                            showMessage("A peça é de metal!");
+                            createPiece("metal");
+                        } else {
+                            s2_value = "0";
+                            showMessage("A peça não é de metal!");
+                        }
+                        break;
+                    case "S3":
+                        //S3: Se a peça é branca: bit a 1, caso contrário: bit a 0
+                        if (col_value.equals("1")) {
+                            showMessage("A peça é de branca!");
+                            createPiece("white");
+                            //customView.swapColorGreen();
+                        } else {
+                            s3_value = "0";
+                            showMessage("A peça não é branca!");
+                            //Log.d("TAG", "S2 " + s2_value + " = " + " S3 ?" + s3_value.equals(s2_value));
+                                    /*if (s1_value.equals("1") && s3_value.equals(s2_value)) {
+                                        createPiece("black");
+                                    }*/
+                        }
+                        break;
+                    case "S4":
+                        //S4 ou SA: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro A e este voltou à posição original (recuo): bit a 1,caso contrário: bit a 0
+                        if (col_value.equals("1")) {
+                            movePiece("metal", true, true);
+                            moveCylinder("A");
+                            //delayMessage(512000, "A peça foi arrumada com sucesso pelo Cilindro A!");
+                        } else {
+                            //delayMessage(1024000, "A peça não foi arrumada com sucesso pelo Cilindro A! Ainda encontra-se na posição inicial.");
+                        }
+                        break;
+                    case "S5":
+                        //S5 ou SB: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro B e este voltou à posição original (recuo): bit a 1, caso contrário: bit a 0
+                        if (col_value.equals("1")) {
+                            movePiece("white", true, true);
+                            moveCylinder("B");
+                            //delayMessage(2048000,"A peça foi arrumada com sucesso pelo Cilindro B!");
+                        } else {
+                            //delayMessage(4096000,"A peça não foi arrumada com sucesso pelo Cilindro B!");
+                        }
+                        break;
+                }
                     /*case "S6":
                         //S6 ou SC: deteta se a peça foi arrumada (avanço) com sucesso pelo cilindro C e este voltou à posição original (recuo): bit a 1, caso contrário: bit a 0
                         if (col_value.equals("1")) {
@@ -245,7 +245,7 @@ public class ProcessActivity extends AppCompatActivity {
                     animationX.start();
                 }
             }
-        } else if (color.equals("black")){
+        } else if (color.equals("black")) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 if (moveY) {
                     ObjectAnimator animationY = ObjectAnimator.ofFloat(imageView, "translationY", -1090f);
@@ -259,7 +259,7 @@ public class ProcessActivity extends AppCompatActivity {
                     animationX.start();
                 }
             }
-        }else{
+        } else {
             //Do nothing
         }
     }
@@ -288,6 +288,7 @@ public class ProcessActivity extends AppCompatActivity {
             //show message;
             Toast.makeText(ProcessActivity.this, "Erro! Não foram encontrados dados!", Toast.LENGTH_LONG).show();
         }
+
         StringBuilder buffer = new StringBuilder();
         while (res.moveToNext()) {
             buffer.append(res.getString(column));
@@ -316,6 +317,6 @@ public class ProcessActivity extends AppCompatActivity {
             public void run() {
 
             }
-        }, delay);
+        }, 1900);
     }
 }
