@@ -11,7 +11,3 @@
   - Importação, leitura e carregamento dos dados csv;     
   - Base de dados SQLITE;
   - Leitura e interpretação dos dados para movimentação das peças;   
-  
- # # # # POSTER e Apresentação
-  
- # Prazo 19 Janeiro
